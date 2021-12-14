@@ -36,8 +36,16 @@ class BaseCalendarAppViewSet(
 
 class CalendarEventViewSet(BaseCalendarAppViewSet):
     """
-    Enables viewing for registered users
-    Editing is allowed for conference room managers
+    Enables viewing and creating
+
+    Owner of the calendar event is user who made the request.
+
+    filter query params:
+
+    1) day=%Y%m%d
+    2) location_id=<int>
+    3) query=<str>
+
     """
     retrieve_serializer_class = CalendarEventRetrieveSerializer
     edit_serializer_class = CalendarEventEditSerializer
